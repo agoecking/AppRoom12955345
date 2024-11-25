@@ -46,6 +46,7 @@ fun ItemEntryScreen(
     navigateBack: () -> Unit,
     onNavigateUp: () -> Unit,
     canNavigateBack: Boolean = true,
+    modifier: Modifier = Modifier,
     viewModel: ItemEntryViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
     val coroutineScope = rememberCoroutineScope()
@@ -64,17 +65,10 @@ fun ItemEntryScreen(
             onSaveClick = {
                 coroutineScope.launch {
                     viewModel.saveItem()
-                    //navigateBack()
+                    navigateBack()
                 }
             },
-            modifier = Modifier
-                .padding(
-                    start = innerPadding.calculateStartPadding(LocalLayoutDirection.current),
-                    end = innerPadding.calculateEndPadding(LocalLayoutDirection.current),
-                    top = innerPadding.calculateTopPadding()
-                )
-                .verticalScroll(rememberScrollState())
-                .fillMaxWidth()
+            modifier = modifier.padding(innerPadding)
         )
     }
 }

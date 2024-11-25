@@ -6,9 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
-/**
- * ViewModel to retrieve and update an item from the [ItemsRepository]'s data source.
- */
+
 class ItemEditViewModel(
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
