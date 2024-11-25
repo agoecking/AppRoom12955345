@@ -1,8 +1,9 @@
 package br.edu.up.rgm12955345
 
 import android.app.Application
+import android.util.Log
 import br.edu.up.rgm12955345.data.AppContainer
-import br.edu.up.rgm12955345.data.AppDataContainer
+//import br.edu.up.rgm12955345.data.AppDataContainer
 
 class InventoryApplication : Application() {
 
@@ -13,6 +14,7 @@ class InventoryApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        container = AppDataContainer(this)
+        Log.d("InventoryApplication", "onCreate called")
+        //container = AppDataContainer(this)
     }
 }

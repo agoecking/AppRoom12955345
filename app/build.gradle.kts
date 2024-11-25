@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("kapt") // Habilita o KAPT
 }
 
 android {
@@ -50,7 +51,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -61,7 +61,6 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.room.common)
     implementation(libs.androidx.room.ktx)
-    implementation(libs.androidx.room.runtime.android)
     implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -70,7 +69,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-//    implementation("androidx.room:room-runtime:${rootProject.extra["room_version"]}")
-//    implementation("androidx.room:room-ktx:${rootProject.extra["room_version"]}")
 
+    // Adicionando a dependência do Room annotation processor com o KAPT
+    //kapt("androidx.room:room-compiler:2.5.0") // Certifique-se de usar a versão compatível
 }
