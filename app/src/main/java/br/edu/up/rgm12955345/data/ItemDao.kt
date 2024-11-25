@@ -6,22 +6,20 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
-
 @Dao
 interface ItemDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(item: Item)
+    suspend fun insert(item: Item): Long // Retorna o ID da nova linha inserida
 
     @Update
-    suspend fun update(item: Item)
+    suspend fun update(item: Item): Int // Retorna o número de linhas afetadas
 
     @Delete
-    suspend fun delete(item: Item)
+    suspend fun delete(item: Item): Int // Retorna o número de linhas afetadas
 
-    @Query("SELECT * from items WHERE id = :id")
-    fun getItem(id: Int) : Flow<Item>
+    @Query("SELECT * FROM items WHERE id = :id")
+    fun getItem(id: Int): Flow<Item?> // Permite valores nulos
 
-    @Query("SELECT * from items ORDER BY name ASC")
+    @Query("SELECT * FROM items ORDER BY name ASC")
     fun getAllItems(): Flow<List<Item>>
-
 }

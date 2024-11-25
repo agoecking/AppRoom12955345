@@ -16,6 +16,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()  // Esse repositório é necessário para os plugins
+
     }
 }
 

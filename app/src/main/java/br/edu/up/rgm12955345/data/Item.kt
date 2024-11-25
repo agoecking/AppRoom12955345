@@ -1,4 +1,5 @@
 package br.edu.up.rgm12955345.data
+
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
