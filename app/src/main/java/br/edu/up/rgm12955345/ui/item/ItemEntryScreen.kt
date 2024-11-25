@@ -64,7 +64,7 @@ fun ItemEntryScreen(
             onSaveClick = {
                 coroutineScope.launch {
                     viewModel.saveItem()
-                    navigateBack()
+                    //navigateBack()
                 }
             },
             modifier = Modifier
